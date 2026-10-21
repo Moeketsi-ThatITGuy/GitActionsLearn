@@ -1,0 +1,8 @@
+# Terraform provider cache and state — never commit these.
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+
+# Local artifacts produced by the local_file resource.
+engineer_name

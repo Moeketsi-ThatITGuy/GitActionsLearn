@@ -1,0 +1,24 @@
+name:  Clean Up Code
+on: 
+  push:
+    branches:
+       - main 
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Get Repo
+        uses: actions/checkout@v4
+      - name: Install terraform
+        uses: hashicorp/setup-terraform@v3
+      - name: terraform initialize
+        run: terraform init  -backend=false
+      - name: validate terraform
+        run: terraform validate
+      - name: format terraform 
+        run: terraform fmt -check
+      
+
+
+
+  

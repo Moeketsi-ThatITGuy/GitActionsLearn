@@ -1,24 +1,21 @@
-name:  Clean Up Code
-on: 
+name: Terraform second practice 
+on:
   push:
     branches:
-       - main 
+      - main
 jobs:
-  check:
+  checkTerraform:
+    name: Terraform validation
     runs-on: ubuntu-latest
-    steps: 
-      - name: Get Repo
+    steps:
+      - name: clone repo
         uses: actions/checkout@v4
-      - name: Install terraform
+      - name: setup Terraform
         uses: hashicorp/setup-terraform@v3
-      - name: terraform initialize
-        run: terraform init  -backend=false
-      - name: validate terraform
-        run: terraform validate
-      - name: format terraform 
+      - name: check terraform format
         run: terraform fmt -check
-      
-
-
-
-  
+      - name: initialize terraform
+        run:  terraform init 
+      - name: terraform validate
+        run: terraform validate
+        

@@ -1,5 +1,3 @@
-output "engineer_name" {
-
-  value = local_file.Moeketsi.content
-
+output "instance ip address" {
+  value = aws_instance.webserver.public_ip
 }
